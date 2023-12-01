@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+  <link rel="stylesheet" href="/style/styles.css">
+  <title>Edit your post</title>
+</head>
+<body>
+<div class="container my-3">
+    <h1>Edit Post</h1>
+    <form action="/update-post/<%= id %>" method="POST">
+        <input type="hidden" name="_method" value="PUT">
+        <div class="mb-3">
+          <label for="formGroupExampleInput" class="form-label">Title</label>
+          <input class="form-control" id="formGroupExampleInput" placeholder="Insert your title" name="title" type="text" placeholder="Enter Title" value="<%= posts[id].title %>" required><br/>
+        </div>
+        <div class="mb-3">
+          <label for="formGroupExampleInput2" class="form-label">Tags</label>
+          <input name="tag" type="text" class="form-control" name="tag" id="formGroupExampleInput2" placeholder="Insert your tags" value="<%= posts[id].tag %>" required>
+        </div>
+        <div class="mb-3">
+          <label for="formGroupExampleInput2" class="form-label">Post</label>
+          <textarea class="form-control" name="post" id="formGroupExampleInput2" placeholder="Insert your tags" name="post" required><%= posts[id].post %></textarea>
+        </div>
+        <div class="mb-3">
+          <!-- Display the existing image URL -->
+          <label for="formGroupExampleInput2" class="form-label">Image: </label>
+          <img src="<%= posts[id].image %>" name="image" alt="Existing Image" width="150" height="100%">
+        </div>
+        <a href="/">Back to Home</a>
+        <button class="mx-3" type="submit">Update Post</button>
+    </form>
+  </div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+</body>
+</html>
